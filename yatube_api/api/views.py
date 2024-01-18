@@ -4,7 +4,7 @@ from rest_framework import generics
 
 from posts.models import Group, Post, Comment
 
-from .serializers import PostSerializer, GroupSerializer
+from .serializers import PostSerializer, GroupSerializer, CommentSerializer
 
 class PostViewSet(viewsets.ModelViewSet):
     queryset = Post.objects.all()
@@ -19,3 +19,8 @@ class GroupList(generics.ListCreateAPIView):
 class GroupDetail(generics.RetrieveUpdateDestroyAPIView):
     queryset = Group.objects.all()
     serializer_class = GroupSerializer
+
+
+class CommentViewSet(viewsets.ModelViewSet):
+    queryset = Comment.objects.all()
+    serializer_class = CommentSerializer
