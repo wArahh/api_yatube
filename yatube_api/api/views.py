@@ -36,7 +36,6 @@ class GroupViewSet(viewsets.ReadOnlyModelViewSet):
     serializer_class = GroupSerializer
 
 
-
 class CommentViewSet(BaseViewSet):
     serializer_class = CommentSerializer
 
@@ -48,4 +47,3 @@ class CommentViewSet(BaseViewSet):
 
     def perform_create(self, serializer):
         serializer.save(author=self.request.user, post=self.get_post())
-
